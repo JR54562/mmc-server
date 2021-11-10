@@ -12,6 +12,10 @@ const cors = require('cors');
 //middleware
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.redirect('/users')
+})
+  
 
 app.listen(3000, () => {
     console.log(`Server running on port: ${port}`);
