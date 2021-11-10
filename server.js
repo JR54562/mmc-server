@@ -7,6 +7,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 // const routes = require('./routes');
 const port = 3000;
+const cors = require('cors');
+
+//middleware
+app.use(cors());
+app.use(express.json());
 
 app.listen(3000, () => {
     console.log(`Server running on port: ${port}`);
