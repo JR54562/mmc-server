@@ -42,11 +42,9 @@ const renderProfile = (req, res) => {
           },
         ],
       })
-    .then(userProfile => {
-        res.render('users/profile.ejs', {
-            user: userProfile
+        .then(userProfile => {
+            res.json(userProfile)
         })
-    })
 }
 
 const editProfile = (req, res) => {
