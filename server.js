@@ -20,8 +20,8 @@ const corsOptions = {
 //middleware
 app.use(cors());
 app.use(express.json());
-app.use('/user', routes.user);
-app.use('/movie', routes.movie);
+app.use('/users', routes.users);
+app.use('/movies', routes.movies);
 
 app.listen(3000, () => {
     console.log(`Server running on port: ${port}`);

@@ -38,7 +38,7 @@ const renderProfile = (req, res) => {
         include: [
           {
             model: Movie,
-            // attributes: ["id","name", "artist"],
+            
           },
         ],
       })
