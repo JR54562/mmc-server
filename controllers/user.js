@@ -26,14 +26,14 @@ const login = (req, res) => {
 }
 //Show the User Profile page
 const renderProfile = (req, res) => {
-    User.findByPk(req.params.index, {
-        include: [
-          {
-            model: Movie,
+    User.findByPk(req.params.index)
+        // include: [
+        // //   {
+        // //     model: Movie,
             
-          },
-        ],
-      })
+        // //   },
+        // ],
+      
         .then(userProfile => {
             res.json(userProfile)
         })
