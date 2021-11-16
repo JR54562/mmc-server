@@ -11,7 +11,7 @@ const port = 3000;
 const cors = require('cors');
 
 const corsOptions = {
-    origin: ['*'],
+    origin: '*',
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
