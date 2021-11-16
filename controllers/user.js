@@ -1,24 +1,16 @@
 const User = require('../models').User;
 const Movie = require('../models').Movie;
 
-const index = (req, res) => {
-    res.render('users/index.ejs')
-}
 
-const renderSignup = (req, res) => {
-    res.render('users/signup.ejs')
-}
 
 const signup = (req, res) => {
     User.create(req.body)
     .then(newUser => {
-        res.redirect(`/users/profile/${newUser.id}`);
+        res.json(newUser);
     })
 }
 
-const renderLogin = (req, res) => {
-    res.render('users/login.ejs')
-}
+
 
 const login = (req, res) => {
     User.findOne({
@@ -29,7 +21,7 @@ const login = (req, res) => {
     })
         .then(foundUser => {
         console.log(foundUser)
-        res.redirect(`/users/profile/${foundUser.id}`);
+        res.json(foundUser);
     })
 }
 //Show the User Profile page
@@ -55,28 +47,15 @@ const editProfile = (req, res) => {
         returning: true
     })
     .then(updatedUser => {
-        res.redirect(`users/profile/${req.params.index}`);
+        res.json(updatedUser);
     })
 }
 
-const deleteUser = (req, res) => {
-    User.destroy({
-        where: {
-            id: req.params.index
-        }
-    })
-    .then(() => {
-        res.redirect('/users');
-    })
-}
+
 
 module.exports = {
-    index,
-    renderSignup,
-    renderLogin,
-    signup,
+     signup,
     login,
     renderProfile,
-    editProfile,
-    deleteUser
+    editProfile   
 }
