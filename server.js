@@ -23,6 +23,6 @@ app.use(express.json());
 app.use('/user', routes.user);
 // app.use('/movie', routes.movie);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server running on port: ${port}`);
   });
