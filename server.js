@@ -21,8 +21,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/user', routes.user);
-// app.use('/movie', routes.movie);
+app.use('/movie', routes.movie);
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server running on port: ${port}`);
+    console.log(`Server running on port: ${process.env.PORT}`);
   });
