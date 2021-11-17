@@ -32,6 +32,7 @@ const renderProfile = (req, res) => {
 };
 
 const editProfile = (req, res) => {
+    console.log('editing profile', req.body);
   User.update(req.body, {
     where: {
       id: req.params.index,
