@@ -43,9 +43,27 @@ const editProfile = (req, res) => {
   });
 };
 
+const getAllMovies = (req, res) => {
+    console.log(Movie);
+    Movie.findAll({
+      where: {
+        user_id: req.params.index,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["username", "id"],
+        },
+      ],
+    }).then((movie) => {
+      res.json(movie);
+    });
+  };
+
 module.exports = {
   signup,
   login,
   renderProfile,
-  editProfile,
+    editProfile,
+    getAllMovies
 };
