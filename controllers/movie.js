@@ -27,8 +27,9 @@ const showMovie = (req, res) => {
 const deleteMovie = (req, res) => {
   Movie.destroy({
     where: { id: req.params.id },
-  }).then(() => {
-    res.redirect("/songs");
+  })
+      .then(() => {
+    res.json('movie destroyed successfully');
   });
 };
 
